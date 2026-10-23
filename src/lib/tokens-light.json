@@ -1,0 +1,26 @@
+{
+  "colors": {
+    "canvas": "#F4F6F9",
+    "surface1": "#FFFFFF",
+    "surface2": "#EDF1F6",
+    "surface3": "#E1E8F0",
+    "textPrimary": "#0B1626",
+    "textSecondary": "#415468",
+    "textTertiary": "#52657A",
+    "accent": "#08679E",
+    "safe": "#05706A",
+    "caution": "#8A5500",
+    "danger": "#9E0F2F"
+  },
+  "surfaces": ["canvas", "surface1", "surface2", "surface3"],
+  "textChecks": [
+    ["textPrimary", 4.5],
+    ["textSecondary", 4.5],
+    ["textTertiary", 4.5],
+    ["accent", 4.5],
+    ["safe", 4.5],
+    ["caution", 4.5],
+    ["danger", 4.5]
+  ],
+  "riskScale": ["safe", "caution", "danger"]
+}

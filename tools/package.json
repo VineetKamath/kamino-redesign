@@ -1,0 +1,17 @@
+{
+  "name": "kamino-redesign-tools",
+  "private": true,
+  "type": "module",
+  "description": "Research and QA scripts: real-screen capture, colour/CVD checks, axe audit, keyboard checks, state screenshots, DOM→SVG for Figma.",
+  "scripts": {
+    "colors": "node check-colors.mjs ../src/lib/tokens.json && node check-colors.mjs ../src/lib/tokens-light.json",
+    "a11y": "node a11y.mjs",
+    "keyboard": "node keyboard.mjs",
+    "states": "node shoot-states.mjs ../shots"
+  },
+  "devDependencies": {
+    "axe-core": "4.10.2",
+    "playwright-core": "1.48.2",
+    "sharp": "0.33.5"
+  }
+}

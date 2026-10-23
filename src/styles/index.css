@@ -1,0 +1,48 @@
+@import './tokens.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    background: rgb(var(--canvas));
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    @apply bg-canvas font-ui text-sm text-ink-1 antialiased;
+    min-height: 100dvh;
+  }
+  h1, h2, h3 {
+    @apply font-display text-ink-1;
+    font-optical-sizing: auto;
+    letter-spacing: -0.015em;
+  }
+  ::selection {
+    background: rgb(var(--accent) / 0.35);
+  }
+  :focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 2px rgb(var(--canvas)), 0 0 0 4px rgb(var(--accent));
+    border-radius: 8px;
+  }
+}
+
+@layer utilities {
+  /* Every figure in the product uses tabular, slashed-zero numerals so columns align and 0/O never blur. */
+  .num {
+    font-variant-numeric: tabular-nums slashed-zero;
+    font-feature-settings: 'tnum' 1, 'zero' 1;
+  }
+  .eyebrow {
+    @apply text-micro font-semibold uppercase text-ink-3;
+    letter-spacing: 0.08em;
+  }
+  .hatch {
+    background-image: repeating-linear-gradient(
+      -45deg,
+      currentColor 0 2px,
+      transparent 2px 6px
+    );
+  }
+}
