@@ -1,22 +1,18 @@
-# Kamino, redesigned: know how close you are to liquidation before it happens
+# Kamino, redesigned: know how close you are to liquidation
 
-*Vineet Kamath · concept, not affiliated with Kamino. Before screens are real kamino.com screenshots (23 Oct 2026, no wallet). Hypotheses are labelled.*
+*Vineet Kamath · concept, not affiliated with Kamino · [live prototype](https://kamino-redesign-six.vercel.app) · [Figma](https://www.figma.com/design/GHO9koxTsxN8yE7zzaVxOO)*
 
-Kamino's risk engine is forgiving: partial liquidations, stake-rate pricing for LSTs, and on-chain LTV-triggered deleverage orders. Its interface doesn't show any of that. Risk appears as three bare percentages, and green means both "earning" and "safe". I kept Kamino's look and spent colour on one thing, distance from liquidation, always paired with a shape and a word (● Safe ▲ Careful ◆ Danger). The bands are a hypothesis built on Kamino's own formula: Safe means SOL can fall 25% or more before liquidation, Danger means under 10%.
+> *Imagine it's a Friday night. You borrow $780 against 10 SOL, and Kamino tells you "Liquidation LTV 80%". It doesn't tell you that a 6% dip in SOL is enough to start selling your collateral. You close the laptop. On 10 Oct 2025, SOL fell 14% in under an hour, off-hours, and ~1,700 Kamino wallets were partially liquidated.*
 
-**1 · Borrow health gauge.** *Problem:* the borrow form shows "Liquidation LTV 80%" as a bare number, and with zero collateral a green "LTV 0.00%" ([docs](https://kamino.com/docs/products/borrow/concepts)). *Decision:* one gauge for three numbers (you, the 74% borrow limit, liquidation), one plain sentence ("You can borrow $321 more and stay safe"), and a slider painted with the same bands. *Why it's better:* you see whether a borrow is safe before you pick an amount, and collateral comes first. *Tradeoff:* at Kamino's own limit a 7.5% drop liquidates you, so I label it Danger. That's opinionated.
+**The problem.** Kamino's risk engine is forgiving, but its interface hides that. Risk shows up as three bare percentages, a borrow with no collateral shows a green "LTV 0.00%", and green means both "earning" and "safe". On 10 Oct 2025, SOL fell ~14% in under an hour and ~1,700 Kamino wallets were partially liquidated ([risk report](https://gov.kamino.finance/t/kamino-lend-risk-event-analysis-10th-of-october-2025/847)).
 
-**2 · "What if?" scrubber.** *Problem:* you can't rehearse a crash. On 10 Oct 2025, SOL fell ~14% in under an hour and ~1,700 wallets were partially liquidated, off-hours ([risk report](https://gov.kamino.finance/t/kamino-lend-risk-event-analysis-10th-of-october-2025/847)). *Decision:* drag SOL's price and watch the gauge react. The liquidation point is marked, one tap replays October 2025, and one line explains that each round repays ~10% of debt from collateral. *Why it's better:* "80% LTV" becomes "SOL at $75 starts liquidation, 28% away". *Tradeoff:* the fee estimate uses Kamino's minimum figures.
+**The principle.** Keep Kamino's look; spend colour on one thing, distance from liquidation, always with a shape and a word (● Safe ▲ Careful ◆ Danger).
 
-**3 · Multiply, visualised.** *Problem:* "3×" comes with an APY but no liquidation price or risk type. A Kamino team member doesn't think many users understand the LST protection ([X](https://x.com/dawidsnyders/status/1846121819360596423)). *Decision:* a deposit → borrow → re-deposit picture (labelled as a mental model), with numbers chosen by strategy type: break-even borrow rate for staking loops, liquidation price for leveraged longs. A net-APY curve matches Kamino's 1.06% at 7.7× and shows that **more leverage earns less today**. *Why it's better:* it names the one risk that applies. *Tradeoff:* a denser screen.
+**Five decisions**
+1. **Borrow health gauge.** One gauge replaces three percentages: where you are, Kamino's limit, and where liquidation starts. It comes with one sentence: "You can borrow $321 more and stay safe."
+2. **"What if?" scrubber.** Drag SOL's price, or replay October 2025, and see exactly when liquidation starts and roughly what it would cost.
+3. **Multiply, visualised.** Show the risk that applies to *this* strategy (the borrow rate for staking loops, the price for leveraged longs), and that more leverage currently earns *less* (Kamino's own 1.06% at 7.7×).
+4. **Vault cards by goal.** Replace three APY tables with cards showing what $1,000 earns in 30 days and a plain risk label. The table stays one tap away.
+5. **Fix my position.** Three fixes, each previewed before you commit, plus Auto-protect, built on Kamino's existing on-chain LTV orders.
 
-**4 · Vault discovery cards.** *Problem:* three dense APY tables, no risk shown for Liquidity, and unexplained 0.00% rows. *Decision:* cards grouped by goal, each with the yield source, a 30-day preview on $1,000, and a risk chip (Kamino's rating, or "est." where Kamino gives none). A table view remains for pros. *Why it's better:* dollars over 30 days beat an APY, and risk is visible at the moment of choice. *Tradeoff:* fewer vaults per screen, and the "est." labels are my hypothesis.
-
-**5 · "Fix my position".** *Problem:* the fixes are spread across separate screens, and the on-chain LTV orders ([klend](https://github.com/Kamino-Finance/klend/blob/master/programs/klend/src/state/obligation_order_operations.rs)) aren't surfaced. *Decision:* one sheet with three fixes, each previewed on a mini gauge and defaulting to the smallest amount that gets back to Safe, plus Auto-protect: "if LTV passes X, repay Y from collateral". *Why it's better:* one decision, and protection that works while you sleep. *Tradeoff:* a keeper fee and one of two order slots. I haven't verified whether Kamino's connected-wallet UI already offers this.
-
-## Submission summary
-1. Kamino's risk engine is forgiving, but its UI hides it: risk is three bare percentages, and a borrow with no collateral shows a green "LTV 0.00%".
-2. Principle: calm numbers, loud risk. Kamino's look is kept, and colour plus shape (● ▲ ◆) is spent only on distance from liquidation.
-3. Five changes: a borrow health gauge, a what-if crash scrubber that replays Oct 2025, Multiply explained by risk type, vault cards by goal, and one-sheet "Fix my position" with Auto-protect.
-4. Grounded in real data: real before screenshots, Kamino's incident report (~1,700 wallets), and maths matching Kamino's own 1.06% APY. Hypotheses are labelled.
-5. Live prototype with every state at mobile and desktop, WCAG AA (0 axe violations), keyboard support, a "Kamino today" toggle on every screen, and an editable Figma file.
+**Honest limits.** The Safe/Careful/Danger bands (≥25% / 10–25% / <10% price buffer) are my design choice. Feature 5's "before" needs a connected wallet and isn't shown. All "before" screens are real kamino.com screenshots from 23 Oct 2026.
