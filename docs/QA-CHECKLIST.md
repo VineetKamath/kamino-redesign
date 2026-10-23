@@ -24,6 +24,10 @@ Feature 5's "before" is shown as a labelled gap, never recreated.
 - ✅ Disclaimer footer on all 8 routes: "Concept redesign by Vineet Kamath — not affiliated with Kamino. Mock data, no wallet connection."
 - ⚠️ Frame rate not profiled; animations are one spring needle and CSS transitions.
 
+## Live deployment
+- ✅ https://kamino-redesign-six.vercel.app: every route, state URL, deep link and asset returns 200 (no deployment protection).
+- ✅ Live real-browser check (`tools/live-check.mjs`): 18 page loads at 390 and 1440, no console errors, footer everywhere, no horizontal overflow.
+
 ## Links and content
 - ✅ All 24 external links return HTTP 200.
 - ✅ No lorem ipsum, TODO or placeholder text.

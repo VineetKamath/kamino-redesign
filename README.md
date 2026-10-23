@@ -7,7 +7,7 @@ A concept redesign of [Kamino Finance](https://kamino.com) for Superteam India's
 
 | | |
 |---|---|
-| **Live prototype** | _Vercel URL — added after deploy_ |
+| **Live prototype** | https://kamino-redesign-six.vercel.app |
 | **Figma** | https://www.figma.com/design/GHO9koxTsxN8yE7zzaVxOO |
 | **Write-up** | [writeup.md](writeup.md) (~1 page) |
 | **Design system** | [DESIGN-SYSTEM.md](DESIGN-SYSTEM.md) · live at `/system` |
