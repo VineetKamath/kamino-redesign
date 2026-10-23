@@ -2,9 +2,9 @@
 
 *Vineet Kamath · concept, not affiliated with Kamino · [live prototype](https://kamino-redesign-six.vercel.app) · [Figma](https://www.figma.com/design/GHO9koxTsxN8yE7zzaVxOO)*
 
-> *Imagine it's a Friday night. You borrow $780 against 10 SOL, and Kamino tells you "Liquidation LTV 80%". It doesn't tell you that a 6% dip in SOL is enough to start selling your collateral. You close the laptop. On 10 Oct 2025, SOL fell 14% in under an hour, off-hours, and ~1,700 Kamino wallets were partially liquidated.*
+> *Imagine it's a Friday night. You borrow $780 against 10 SOL, and Kamino tells you "Liquidation LTV 80%". It doesn't tell you that a 6% dip in SOL is enough to start selling your collateral. You close the laptop. On 10 Oct 2025, SOL fell 14% in under an hour, off-hours, and ~1,700 Kamino wallets were partially liquidated ([Kamino risk report](https://gov.kamino.finance/t/kamino-lend-risk-event-analysis-10th-of-october-2025/847)).*
 
-**The problem.** Kamino's risk engine is forgiving, but its interface hides that. Risk shows up as three bare percentages, a borrow with no collateral shows a green "LTV 0.00%", and green means both "earning" and "safe". On 10 Oct 2025, SOL fell ~14% in under an hour and ~1,700 Kamino wallets were partially liquidated ([risk report](https://gov.kamino.finance/t/kamino-lend-risk-event-analysis-10th-of-october-2025/847)).
+**The problem.** Kamino's risk engine is forgiving, but its interface hides that. Risk shows up as three bare percentages, a borrow with no collateral shows a green "LTV 0.00%", and green means both "earning" and "safe". Nothing tells a new user how far they are from liquidation.
 
 **The principle.** Keep Kamino's look; spend colour on one thing, distance from liquidation, always with a shape and a word (● Safe ▲ Careful ◆ Danger).
 
